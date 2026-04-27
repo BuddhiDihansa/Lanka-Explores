@@ -54,42 +54,37 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
         fadeOut ? "opacity-0" : "opacity-100"
       }`}
     >
-      {/* Animated Sri Lanka Map */}
+      {/* Full Screen Sri Lanka Map Image */}
       <div
-        className={`relative z-10 transition-all duration-1000 ease-out ${
-          showMap
-            ? "opacity-100 scale-100"
-            : "opacity-0 scale-50"
+        className={`absolute inset-0 transition-all duration-1000 ease-out ${
+          showMap ? "opacity-100 scale-100" : "opacity-0 scale-110"
         }`}
       >
-        <div className="relative w-64 h-80 md:w-80 md:h-[400px] lg:w-96 lg:h-[480px]">
-          <Image
-            src="/images/sri-lanka-map.jpg"
-            alt="Sri Lanka Map"
-            fill
-            className="object-contain drop-shadow-2xl"
-            priority
-          />
-          {/* Golden glow effect */}
-          <div 
-            className={`absolute -inset-8 bg-amber-500/30 blur-3xl -z-10 transition-opacity duration-1000 ${
-              showMap ? "opacity-100 animate-pulse" : "opacity-0"
-            }`} 
-          />
-          <div 
-            className={`absolute -inset-4 bg-amber-400/20 blur-xl -z-10 transition-opacity duration-1000 ${
-              showMap ? "opacity-100" : "opacity-0"
-            }`} 
-          />
+        <Image
+          src="/images/sri-lanka-map.jpg"
+          alt="Sri Lanka Map"
+          fill
+          className="object-cover"
+          priority
+        />
+
+        {/* Dark overlay - image ට උඩින් text පේන්න */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        {/* Golden glow - center */}
+        <div
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${
+            showMap ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <div className="w-96 h-96 bg-amber-500/20 blur-3xl rounded-full animate-pulse" />
         </div>
       </div>
 
       {/* Welcome Text */}
       <div
         className={`relative z-10 mt-10 text-center transition-all duration-700 ease-out ${
-          showText
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-6"
+          showText ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-wider">
@@ -102,9 +97,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
       {/* Tagline */}
       <div
         className={`relative z-10 mt-4 text-center transition-all duration-700 ease-out ${
-          showTagline
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-4"
+          showTagline ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         }`}
       >
         <p className="text-lg md:text-xl lg:text-2xl text-white font-light tracking-wide">
