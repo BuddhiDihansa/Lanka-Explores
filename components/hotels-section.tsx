@@ -64,8 +64,21 @@ const amenityIcons: Record<string, React.ReactNode> = {
 
 export function HotelsSection() {
   return (
-    <section id="hotels" className="py-20 bg-gradient-to-b from-zinc-950 to-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="hotels" className="relative overflow-hidden py-20 bg-black text-foreground">
+      <div aria-hidden className="absolute inset-0 -z-20 bg-black" />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.18),transparent_0_18%,transparent_34%),radial-gradient(circle_at_top_right,rgba(202,138,4,0.12),transparent_0_16%,transparent_32%),radial-gradient(circle_at_bottom_center,rgba(251,191,36,0.08),transparent_0_16%,transparent_36%),linear-gradient(180deg,#090909_0%,#050505_55%,#090909_100%)]"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(circle_at_20%_18%,rgba(251,191,36,0.12),transparent_0_14%,transparent_32%),radial-gradient(circle_at_80%_14%,rgba(202,138,4,0.1),transparent_0_12%,transparent_30%),radial-gradient(circle_at_50%_88%,rgba(251,191,36,0.05),transparent_0_12%,transparent_32%)] blur-3xl opacity-80"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 pointer-events-none bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0)),linear-gradient(90deg,rgba(251,191,36,0.03)_1px,transparent_1px)] bg-[size:100%_100%,140px_140px] [mask-image:radial-gradient(circle_at_center,black_34%,transparent_100%)] opacity-10"
+      />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-amber-400 font-semibold text-sm uppercase tracking-widest">

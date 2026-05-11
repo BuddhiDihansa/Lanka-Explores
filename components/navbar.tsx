@@ -6,10 +6,10 @@ import { Menu, X, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Districts", href: "#districts" },
-  { name: "Places", href: "#places" },
-  { name: "Hotels", href: "#hotels" },
+  { name: "Home", href: "#home", type: "anchor" as const },
+  { name: "Districts", href: "/districts", type: "route" as const },
+  { name: "Places", href: "#places", type: "anchor" as const },
+  { name: "Hotels", href: "#hotels", type: "anchor" as const },
 ];
 
 export function Navbar() {
@@ -56,17 +56,28 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-white/90 hover:text-amber-400 font-medium transition-colors duration-300 relative group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.type === "route" ? (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-white/90 hover:text-amber-400 font-medium transition-colors duration-300 relative group"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full" />
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-white/90 hover:text-amber-400 font-medium transition-colors duration-300 relative group"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full" />
+                </a>
+              )
+            )}
           </div>
 
           {/* Auth Buttons */}
@@ -96,16 +107,27 @@ export function Navbar() {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-white/10 bg-black/95 backdrop-blur-md">
             <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-white/90 hover:text-amber-400 font-medium px-2 py-2 transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.type === "route" ? (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-white/90 hover:text-amber-400 font-medium px-2 py-2 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-white/90 hover:text-amber-400 font-medium px-2 py-2 transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                )
+              )}
               <div className="flex flex-col gap-2 pt-4 border-t border-white/10">
                 <Button
                   variant="ghost"

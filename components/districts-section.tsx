@@ -60,28 +60,35 @@ export function DistrictsSection() {
               href={`/districts/${district.name.toLowerCase().replace(/\s+/g, "-")}`}
             >
               <Card
-                className="group overflow-hidden border-0 bg-zinc-900/50 hover:bg-zinc-800/50 transition-all duration-500 cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1"
+                className="district-card-enter group overflow-hidden border border-white/10 bg-zinc-950/60 backdrop-blur-sm transition-all duration-500 cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-amber-500/15 hover:-translate-y-1 hover:border-amber-400/30"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <div className="relative h-36 overflow-hidden">
+                <div className="relative aspect-[4/5] overflow-hidden">
                   <Image
                     src={district.image}
                     alt={district.name}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  <div className="absolute top-3 right-3 px-2 py-1 bg-amber-500/90 backdrop-blur-sm rounded text-xs font-semibold text-black">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-400 via-amber-300 to-red-500 opacity-90" />
+                  <div className="absolute left-3 top-3 rounded-full bg-black/45 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-300 backdrop-blur-md border border-white/10">
                     {district.province}
                   </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">
-                    {district.name}
-                  </h3>
-                  <div className="flex items-center gap-1 text-white/50 text-sm mt-1">
-                    <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                    <span>{district.placeCount} places</span>
+                  <div className="absolute inset-x-0 bottom-0 p-4">
+                    <div className="flex items-end justify-between gap-3">
+                      <div>
+                        <h3 className="text-xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)] group-hover:text-amber-300 transition-colors">
+                          {district.name}
+                        </h3>
+                        <p className="mt-1 text-sm text-white/70">
+                          Click to explore destinations
+                        </p>
+                      </div>
+                      <div className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-md">
+                        {district.placeCount} places
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Card>

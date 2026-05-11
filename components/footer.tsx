@@ -5,18 +5,18 @@ import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Youtube } from "luci
 
 const quickLinks = [
   { name: "Home", href: "#home" },
-  { name: "Districts", href: "#districts" },
+  { name: "Districts", href: "/districts" },
   { name: "Places", href: "#places" },
   { name: "Hotels", href: "#hotels" },
 ];
 
 const popularDistricts = [
-  { name: "Colombo", href: "#" },
-  { name: "Kandy", href: "#" },
-  { name: "Galle", href: "#" },
-  { name: "Negombo", href: "#" },
-  { name: "Jaffna", href: "#" },
-  { name: "Sigiriya", href: "#" },
+  { name: "Colombo", href: "/districts/colombo" },
+  { name: "Kandy", href: "/districts/kandy" },
+  { name: "Galle", href: "/districts/galle" },
+  { name: "Jaffna", href: "/districts/jaffna" },
+  { name: "Anuradhapura", href: "/districts/anuradhapura" },
+  { name: "Ratnapura", href: "/districts/ratnapura" },
 ];
 
 const socialLinks = [
